@@ -1,11 +1,14 @@
-let city = prompt("enter the name of city you want to see the weather of....")
-let cityname_url = `https://geocoding-api.open-meteo.com/v1/search?name=${city}`;
 
 let display = document.querySelector(".empty_para");
 let button = document.querySelector("#btn")
 
 
 async function get_data() {
+
+    let city = document.querySelector("#cities");
+    let city_Name = city.value;
+    let cityname_url = `https://geocoding-api.open-meteo.com/v1/search?name=${city_Name}`;
+
     let cityname_Data = await fetch(cityname_url);
     let data = await cityname_Data.json();
 
